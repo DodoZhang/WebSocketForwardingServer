@@ -16,6 +16,10 @@ namespace WSFS
 
         public WSFSDomain? Domain { get; private set; }
 
+        public string ClientIPAddress => connection.ConnectionInfo.ClientIpAddress;
+        public int ClientPort => connection.ConnectionInfo.ClientPort;
+        public Guid ID => connection.ConnectionInfo.Id;
+
         internal WSFSConnection(WSFSServer server, IWebSocketConnection connection)
         {
             Server = server;
