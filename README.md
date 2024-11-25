@@ -1,8 +1,8 @@
 # WSFS (Web Socket Forwarding Server)
 
-WSFS is a lightweight Web Socket Forwarding Server framework based on [Fleck](github.com/statianzo/Fleck). It is an easy-to-embed framework that supports multi-channel communication and custom login checks.
+WSFS is a lightweight Web Socket Forwarding Server framework based on [Fleck](github.com/statianzo/Fleck).It is a Message Queue server framework that is easy to embed and supports custom login checks.
 
-WSFS 是一个基于 [Fleck](github.com/statianzo/Fleck) 的轻量化的 Web Socket 转发服务器框架。它是一个易于嵌入且支持多通道通讯和自定义登录校验的框架。
+WSFS 是一个基于 [Fleck](github.com/statianzo/Fleck) 的轻量化的 Web Socket 转发服务器框架。它是一个易于嵌入且支持自定义登录校验的消息队列服务器框架。
 
 [中文介绍](README.zh_cn.md)
 
