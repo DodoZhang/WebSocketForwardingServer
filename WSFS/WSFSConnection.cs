@@ -70,6 +70,8 @@ namespace WSFS
         private void OnMessage(string message)
         {
             if (Domain is null) return;
+            if (!Server.Behaviour.OnForwardingMessage(Domain, this, message)) return;
+            
             foreach (WSFSConnection connection in Domain.connections)
             {
                 if (connection == this) continue;
@@ -80,6 +82,8 @@ namespace WSFS
         private void OnBinary(byte[] message)
         {
             if (Domain is null) return;
+            if (!Server.Behaviour.OnForwardingMessage(Domain, this, message)) return;
+
             foreach (WSFSConnection connection in Domain.connections)
             {
                 if (connection == this) continue;
