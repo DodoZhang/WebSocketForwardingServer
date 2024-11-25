@@ -27,6 +27,7 @@ namespace WSFS
 
             connection.OnOpen = OnOpen;
             connection.OnMessage = OnMessage;
+            connection.OnBinary = OnBinary;
             connection.OnClose = OnClose;
         }
 
@@ -76,6 +77,16 @@ namespace WSFS
             }
         }
 
+        private void OnBinary(byte[] message)
+        {
+            if (Domain is null) return;
+            foreach (WSFSConnection connection in Domain.connections)
+            {
+                if (connection == this) continue;
+                connection.Send(message);
+            }
+        }
+
         private void OnClose()
         {
             IWebSocketConnectionInfo info = connection.ConnectionInfo;
@@ -98,6 +109,7 @@ namespace WSFS
         }
 
         public void Send(string message) => connection.Send(message);
+        public void Send(byte[] message) => connection.Send(message);
         public void Close() => connection.Close();
     }
 }
